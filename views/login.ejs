@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: 24px;
+        border: none;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 10px 24px;
+      }
+
+      input[type="text"] {
+        width: 320px;
+        padding: 7px 12px;
+        font-size: 16px;
+      }
+      .container {
+        margin-top: 90px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Titanium Auth</h1>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        placeholder="What's your email"
+      />
+      <button>Login</button>
+    </div>
+
+    <script>
+      const button = document.querySelector("button");
+      button.addEventListener("click", async (e) => {
+        const userEmail = email.value;
+        const container = document.querySelector(".container");
+        container.innerHTML = ` <h1>Loading...</h1> `;
+        const res = await fetch(`https://51knvn.deta.dev/login/${userEmail}`);
+        const resJson = await res.json();
+        if (resJson.status === "success") {
+          container.innerHTML = ` <h3>Check your email, auto login link has been sent to your inbox</h1> `;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: 24px;
+        border: none;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 10px 24px;
+      }
+      .container {
+        margin-top: 90px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello</h1>
+      <% if (token) { %> <%= token.email %> <% } %>
+      <form action="/logout" method="get">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </body>
+</html>
